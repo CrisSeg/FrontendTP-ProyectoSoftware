@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    text-align: center;
+}
+
+body{
+    background-color: #f73c3c;
+}
+
+#orders{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 10vh;
+    color: #841818;
+}
+
+/* Estilo del filtrado */
+.filter{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+#dateStart, #dateEnd, #statusOrder{
+    background-color: #ff6a6a;
+    font-size: 3vh;
+    color: #9f1515;
+    border: none;
+    border-radius: 20px;
+}
+
+#dateStart::placeholder, #dateEnd::placeholder{
+    color: #9f1515;
+}
+
+.button-filter{
+    background-color: #ff6a6a;
+    color: #9f1515;
+    border: none;
+    border-radius: 20px;
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+@media (max-width: 700px){
+    .filter{
+        flex-direction: column;
+    }
+}
+
+/* Estilo de la lista de ordenes*/
+.ordenes{
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0;
+    margin: 0;
+
+    place-items: center;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.listOrd{
+    background-color: #ff6a6a;
+    border-radius: 25px;
+    font-size: 2vh;
+    text-align: center;
+
+    margin: 10px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 
+    "ord pre des not"
+    "stId st delId del"
+    "oi oi oi oi"
+    "fecI fecI fecE fecE";
+}
+
+.orderID{
+    grid-area: ord;
+}
+
+.orderPrice{
+    grid-area: pre;
+}
+
+.deliveryTo{
+    grid-area: des;
+}
+
+.OrderNote{
+    grid-area: not;
+}
+
+.statusId{
+    grid-area: stId;
+}
+
+.status{
+    grid-area: st;
+}
+
+.deliveryId{
+    grid-area: delID;
+}
+
+.deliveryType{
+    grid-area: del;
+}
+
+.divOI{
+    grid-area: oi;
+    display: grid;
+    grid-template-rows: minmax(200px, auto);
+    gap: 10px;
+    padding: 10px;
+}
+
+.createDate{
+    grid-area: fecI;
+}
+
+.updateDate{
+    grid-area: fecE;
+}
+
+.ordenItems{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas: 
+    "img img disId disId disId"
+    "img img disN note note"
+    "oiId oiID qua staId sta";
+
+    place-items: center;
+}
+
+
+.dishImg{
+    grid-area: img;
+    width: 250px;
+    height: 250px;
+}
+
+.oiQuantity{
+    grid-area: qua;
+}
+
+.oiNote{
+    grid-area: note;
+}
+
+.oiStatusid{
+    grid-area: staId;
+}
+
+.oiStatusn{
+    grid-area: sta;
+}
+
+.DishId{
+    grid-area: disId;
+}
+
+.dishName{
+    grid-area: disN;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Menu</title>
+</head>
+<body>
+    <header>
+        <h2 id="option">Opciones</h2>
+    </header>
+    <div class="container">
+        <div class="Filter">
+            <input type="text" id="searchName" placeholder="Buscar por nombre">
+            <select id="category">
+                <option value="">Todas las categorias</option>
+                <option value="1">entrada</option>
+                <option value="2">Ensalda</option>
+                <option value="3">Minutas</option>
+                <option value="4">Pastas</option>
+                <option value="5">Parrilla</option>
+                <option value="6">Pizzas</option>
+                <option value="7">Sandwiches</option>
+                <option value="8">Bebidas</option>
+                <option value="9">Cerveza Artesanal</option>
+                <option value="10">Postre</option>
+            </select>
+            <select id="price">
+                <option value="">ordenar por Precio</option>
+                <option value="default">Por Defecto</option>
+                <option value="asc">ASC</option>
+                <option value="desc">DESC</option>
+            </select>
+            <label id="isAvailable">
+                <input type="checkbox" id="available"> Solo Disponibles
+            </label>
+
+            <button id="buttonFilter" class="buttonFil">Filtrar</button>
+        </div>
+
+        <div id="menu" class="menu"></div>
+        <div id="createOrder" class="orders"></div>
+    </div>
+    <script src="/Menu/javaScript/getDish.js"></script>
+    <script src="/Menu/javaScript/cart.js"></script>
+</body>
+</html>

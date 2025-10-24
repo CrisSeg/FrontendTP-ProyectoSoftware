@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Order/style.css">
+    <title>Order</title>
+</head>
+<body>
+    <header>
+        <h2 id="orders">Ordenes</h2>
+    </header>
+    <div class="filter">
+        <input type="datetime" id="dateStart" placeholder="fechaInicial">
+        <input type="datetime" id="dateEnd" placeholder="fechaFinal">
+        <select id="statusOrder">
+            <option value="">Todos las ordenes</option>
+            <option value="1">Pendiente</option>
+            <option value="2">En preparacion</option>
+            <option value="3">Listo</option>
+            <option value="4">Entregado</option>
+            <option value="5">Cerrado</option>
+        </select>
+        <button id="buttonFilter" class="button-filter">Filtrar</button>
+    </div>
+
+    <div id="ordenes" class="ordenes"></div>
+
+    <script src="/Order/JavaScript/loadOrder.js"></script>
+</body>
+</html>
