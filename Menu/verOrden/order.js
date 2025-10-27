@@ -1,20 +1,21 @@
-const apiUrl = "https://localhost:7131/api/v1/Order";
+const apiUrl = `https://localhost:7131/api/v1/Order`
+const orderId = localStorage.getItem('orderId');
 
-function makeOrders(order){
+function makeOrder(order){
     const {orderNumber, totalAmount, deliveryTo, note, status, deliveryType, orderItems, createdAt, updatedAt} = order;
 
     const deliveryName = deliveryType.name;
     const statusName = status.name;
-    
-    const container = document.querySelector(".ordenes");
 
-    const ordId = document.createElement("h4");
-    ordId.className = 'orderID';
-    ordId.textContent = `Order ID: ${orderNumber}`;
+    const container = document.getElementById('Order');
+
+    const ordId = document.createElement('h4');
+    ordId.className = 'orderId';
+    ordId.textContent = `order Number: ${orderNumber}`;
 
     const oPrice = document.createElement("p");
     oPrice.className = 'orderPrice';
-    oPrice.textContent = `Precion: $${totalAmount}`;
+    oPrice.textContent = `Precio: $${totalAmount}`;
 
     const oDeliveryTo = document.createElement("p");
     oDeliveryTo.className = 'deliveryTo';
@@ -84,7 +85,7 @@ function makeOrderItemns(orderItems){
 
         const oiOrderItemId = document.createElement('h4');
         oiOrderItemId.className = 'ordenItemId';
-        oiOrderItemId.textContent = `Order item ID: ${id}}`;
+        oiOrderItemId.textContent = `Order item ID: ${id}`;
 
         const oQuantity = document.createElement('p');
         oQuantity.className = 'oiQuantity';
@@ -126,30 +127,15 @@ function makeOrderItemns(orderItems){
     return OIDiv;
 }
 
-async function loadOrder(){
-    document.getElementById('ordenes').innerHTML = "";
+async function loadOrderById(id) {
+    document.getElementById('Order').innerHTML = '';
 
-    const dateStart = document.getElementById("dateStart").value;
-    const dateEnd = document.getElementById("dateEnd").value;
-    const statusorder = document.getElementById("statusOrder").value;
-    
-    const param = new URLSearchParams();
+    let url = `${apiUrl}/${id}`;
 
-    if(dateStart) { param.append("inicio", dateStart); }
-    if(dateEnd) { param.append("fin", dateEnd); }
-    if(statusorder) {param.append("statusId", statusorder); }
+    const response = await fetch(url);
+    const order = await response.json();
 
-    let url = `${apiUrl}?${param.toString()}`;
-    console.log(url);
-
-    const res = await fetch(url);
-    const orders = await res.json();
-
-    for(let i = 0; i < orders.length; i++){
-        makeOrders(orders[i]);
-    }
+    makeOrder(order);
 }
 
-document.getElementById('buttonFilter').addEventListener('click', loadOrder);
-
-loadOrder();
+loadOrderById(orderId);

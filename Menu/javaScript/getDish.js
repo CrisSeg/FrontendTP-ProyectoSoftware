@@ -1,9 +1,11 @@
 // Guardamos la ruta base del endpoint que devuelve los platos
-const apiUrl = "https://localhost:7131/api/Dish";
+const apiUrl = "https://localhost:7131/api/v1/Dish";
 
 
 function makeMenu(dish){
-    const {dishId, name, description, price, available, imageUrl, categoryName} = dish;
+    const {id, name, description, price, image, isActive, category} = dish;
+    const categoryName = category.name;
+
     const container = document.querySelector(".menu");
 
     const dishName = document.createElement("h4");
@@ -16,10 +18,10 @@ function makeMenu(dish){
     dishPrice.textContent = price;
 
     const dishAvialable = document.createElement("p");
-    dishAvialable.textContent = available;
+    dishAvialable.textContent = isActive;
 
     const dishImage = document.createElement("img");
-    dishImage.src = imageUrl;
+    dishImage.src = image;
 
     const dishCategory = document.createElement("p");
     dishCategory.textContent = categoryName;
@@ -57,9 +59,9 @@ function makeMenu(dish){
         // Intentar usar funciones de cart.js si existen
         try {
                 const dishObj = { 
-                    DishId: dishId, 
+                    DishId: id, 
                     DishName: name,
-                    DishImg: imageUrl, 
+                    DishImg: image, 
                     OrderPrice: priceOrder, 
                     Notes: note.value || '', 
                     Quantity: parseInt(qtyInput.value,10) || 1 };

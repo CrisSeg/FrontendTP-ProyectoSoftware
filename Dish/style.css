@@ -106,3 +106,118 @@ h2{
     border-radius: 20px;
     cursor: pointer;
 }
+
+.deleteD{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.dishI{
+    width: 70%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+
+    margin-bottom: 20px;
+}
+
+.buttonD{
+    width: 500px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.updateD{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    "id id id"
+    "nom nom nom"
+    "des des des"
+    "img img cat"
+    "pr ac bt";
+
+    place-items: center;
+}
+
+.dishI{
+    grid-area: id;
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+}
+
+.dishN{
+    grid-area: nom;
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+}
+
+.dishD{
+    grid-area: des;
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+    resize: none;
+}
+
+.categoryD{
+    grid-area: cat;
+    width: 500px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.dishIm{
+    grid-area: img;
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+}
+
+.dishP{
+    grid-area: pr;
+    width: 800px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+}
+
+.isActive{
+    grid-area: ac;
+    width: 300px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.buttonU{
+    grid-area: bt;
+    width: 500px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}

@@ -1,5 +1,6 @@
 *{
     margin: 0;
+    box-sizing: border-box;
     text-align: center;
 }
 
@@ -224,4 +225,152 @@ input[type="checkbox"]{
     color: #9f1515;
     margin-left: 20px;
     font-size: 2vh;
+}
+
+.upOrder{
+    margin: 0 auto;
+    background-color: #ffa1a1;
+    width: 2500px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 5vh;
+    border-radius: 50px;
+
+    place-items: center;
+}
+
+.upOrder .uo{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.upOrder input[type="number"]{
+    -moz-appearance: textfield;
+}
+
+.upOrder input[type="number"]::-webkit-inner-spin-button,
+.upOrder input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.orderId{
+    margin: 0 auto;
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+}
+
+.updateO{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    place-items: center;
+}
+
+.oiId{
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+}
+
+.oiNOte{
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+    resize: none;
+}
+
+.oiQuan{
+    margin-left: 10px;
+    width: 500px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+}
+
+.oiDelete{
+    margin-left: 10px;
+    width: 500px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+.agregarD{
+    width: 1000px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.buttonUO{
+    margin-bottom: 50px;
+    width: 1000px;
+    font-size: 2vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.orderID{
+    margin: 0 auto;
+    width: 2500px;
+    font-size: 5vh;
+    background-color: #ffc7c7;
+    border: none;
+    border-radius: 50px;
+}
+
+.orderID .order{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.orderIdDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    place-items: center;
+}
+
+.idOrder{
+    width: 80%;
+    font-size: 2vh;
+    background-color: #ffa1a1;
+    border: none;
+    border-radius: 30px;
+}
+
+.sendID{
+    width: 1000px;
+    font-size: 2vh;
+    background-color: #ffa1a1;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-bottom: 30px;
 }

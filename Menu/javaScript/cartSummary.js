@@ -1,7 +1,7 @@
 // --- Mostrar carrito local (si existe) como "Crear Pedido desde carrito" ---
 const CART_KEY = 'restaurant_cart_v1';
 
-const apiUrl = 'https://localhost:7131/api/Order'
+const apiUrl = 'https://localhost:7131/api/v1/Order'
 
 function getLocalCart(){
     try{
@@ -107,12 +107,12 @@ function renderCartSummary(){
     send.addEventListener('click', async ()=>{
         const ord = {
             items: cart.map(item => ({
-                DishId: item.DishId,
-                Quantity: item.Quantity,
-                Notes: item.Notes || 'Sin ninguna especificacion'
+                id: item.DishId,
+                quantity: item.Quantity,
+                notes: item.Notes || 'Sin ninguna especificacion'
             })),
             delivery: {
-                deliveryID: deliveryType.value,
+                id: deliveryType.value,
                 to: delTo.value || 'Sin especificaciones'
             },
             notes: noteOrd.value || 'Sin ninguna especificacion'
@@ -135,7 +135,7 @@ function renderCartSummary(){
             const data = await response.json();
             alert(
                 `Pedido creado con éxito:\n\n` +
-                `ID: ${data.orderId}\n Precio total: $${data.price}\n Fecha: ${new Date(data.createDate).toLocaleDateString()}`
+                `ID: ${data.orderNumber}\n Precio total: $${data.totalAmount}\n Fecha: ${new Date(data.createdAt).toLocaleDateString()}`
             );
         } catch (error){
                 console.error("Erro al crear el pedido: ",error);

@@ -31,6 +31,7 @@ function addToCart(item){
     const price = item.OrderPrice || '';
     const notes = item.Notes || item.notes || 'Sin ninguna especificacion';
     const qty = item.Quantity || item.quantity || 1;
+    const cName  = item.categoryName;
 
     const cart = getCart();
     // Si hay la misma dishId y la misma nota, sumamos cantidades; si la nota difiere, creamos otra línea
