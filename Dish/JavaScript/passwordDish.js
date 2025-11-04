@@ -1,7 +1,11 @@
 document.getElementById('dishes').addEventListener("click", (Event) => {
     Event.preventDefault();
 
-    if(document.getElementById("passwordDish")) return;
+    const existing = document.getElementById('passwordDish');
+    if(existing){
+        existing.remove();
+        return;
+    }
 
     const divDish = document.createElement('div');
     divDish.id = 'passwordDish';
@@ -12,16 +16,22 @@ document.getElementById('dishes').addEventListener("click", (Event) => {
         <button id="check">Acceder</button>
     `;
 
+    divDish.addEventListener('click', (e) => e.stopPropagation());
     document.getElementById("controllerDish").appendChild(divDish);
 
-    document.getElementById("check").addEventListener("click", () => {
-        const clave = document.getElementById("dishPassword").value;
+    document.getElementById('check').addEventListener('click', (e) => {
+        e.stopPropagation();
 
+        const clave = document.getElementById('dishPassword').value;
         if(verificationPassword(clave)){
-            divDish.remove();
-            window.location.href = "/Dish/index.html";
-        } else{
-            alert("Contraseña incorrecta");
-        }
-    })
+                divDish.remove();
+                window.location.href = "/Dish/index.html";
+            } else {
+                alert("Contraseña incorrecta");
+            }
+    });
 });
+
+function verificationPassword(clave){
+    return clave == "MesaGaucha"
+}

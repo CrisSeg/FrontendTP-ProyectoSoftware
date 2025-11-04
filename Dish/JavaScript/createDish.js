@@ -4,7 +4,11 @@ function createDish(){
     document.getElementById('createDish').addEventListener("click", (Event) => {
         Event.preventDefault();
 
-        if (document.getElementById("create")) return;
+        const existing = document.getElementById('create');
+        if(existing){
+            existing.remove();
+            return;
+        }
 
         const divCreate = document.createElement('div');
         divCreate.id = 'create';
@@ -66,9 +70,12 @@ function createDish(){
         divCreate.appendChild(img);
         divCreate.appendChild(send);
 
+        divCreate.addEventListener('click', (e) => e.stopPropagation());
+
         document.getElementById('createDish').appendChild(divCreate);
 
-        send.addEventListener('click', async () =>{
+        send.addEventListener('click', async (e) =>{
+            e.stopPropagation();
             const dish = {
                 name: name.value,
                 description: desc.value,

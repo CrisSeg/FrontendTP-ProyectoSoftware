@@ -1,21 +1,25 @@
+const orderId = localStorage.getItem('orderId');
+
 function updateOrder(){
-    document.getElementById('updateOrder').addEventListener('click', (Event) => {
+
+    const updateOrderDiv = document.getElementById('updateOrder');
+
+    updateOrderDiv.addEventListener('click', (Event) => {
         Event.preventDefault();
 
-        if(document.getElementById('updateO')) return;
+        const existingForm = document.getElementById('updateO');
+
+        if(existingForm) {
+            existingForm.remove();
+            return
+        };
 
         // Contenedo General
         const divUpdateO = document.createElement('div');
         divUpdateO.id = 'updateO';
         divUpdateO.className = 'updateO';
 
-        const idOrder = document.createElement('input');
-        idOrder.type = 'text';
-        idOrder.id = 'orderId';
-        idOrder.className = 'orderId';
-        idOrder.placeholder = 'Ingrese el id de la orden a actulizar';
-
-        divUpdateO.appendChild(idOrder);
+        divUpdateO.addEventListener('click', (e) => e.stopPropagation())
         
         // Contenedor donde se iran agregando platos
         const dishesCon = document.createElement('div');
@@ -60,7 +64,8 @@ function updateOrder(){
             deleteDish.textContent = 'Eliminar Plato';
             deleteDish.id= 'oiDelete';
             deleteDish.className = 'oiDelete';
-            deleteDish.addEventListener('click', () => {
+            deleteDish.addEventListener('click', (e) => {
+                e.stopPropagation();
                 dishesCon.removeChild(dishDiv);
             })
 
@@ -74,15 +79,20 @@ function updateOrder(){
 
         agregarPlato();
 
-        agregarD.addEventListener('click', () => {
+        agregarD.addEventListener('click', (e) => {
+            e.stopPropagation();
             agregarPlato();
         });
 
         divUpdateO.appendChild(agregarD);
         divUpdateO.appendChild(send);
 
-        document.getElementById('updateOrder').appendChild(divUpdateO);
-        sendUpdateOrder();
+        send.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sendUpdateOrder();
+        })
+
+        updateOrderDiv.appendChild(divUpdateO);
     });
 }
 
@@ -109,10 +119,7 @@ function sendUpdateOrder(){
             return;
         }
 
-        const id = document.getElementById('orderId').value;
-        const apiUrl = `https://localhost:7131/api/v1/Order/${id}`;
-
-        console.log('Datos enviados:', dishOrders);
+        const apiUrl = `https://localhost:7131/api/v1/Order/${orderId}`;
 
         try {
             const response = await fetch(apiUrl, {

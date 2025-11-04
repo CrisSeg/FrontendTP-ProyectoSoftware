@@ -2,7 +2,11 @@ document.getElementById('accessOrder').addEventListener("click", (Event) => {
     // Evita que el enlace redirija automaticamente
     Event.preventDefault();
 
-    if (document.getElementById("passwordOrder")) return;
+    const existing = document.getElementById('passwordOrder');
+    if(existing){
+        existing.remove();
+        return;
+    }
 
     const div = document.createElement('div');
     div.id = 'passwordOrder';
@@ -13,14 +17,16 @@ document.getElementById('accessOrder').addEventListener("click", (Event) => {
         <button id="checkPassword">Acceder</button>
     `;
 
+    div.addEventListener('click', (e) => e.stopPropagation());
     document.getElementById("employee").appendChild(div);
 
-    document.getElementById("checkPassword").addEventListener("click", () => {
+    document.getElementById('checkPassword').addEventListener('click', (e) => {
+        e.stopPropagation();
         const clave = document.getElementById("orderPassword").value;
 
         if(verificationPassword(clave)){
-        div.remove();
-        window.location.href = "/Order/index.html";
+            document.getElementById('passwordOrder').remove();
+            window.location.href = "/Order/index.html";
         } else {
             alert("Contraseña incorrecta");
         }

@@ -1,7 +1,11 @@
 document.getElementById('deleteDish').addEventListener('click', (Event) => {
     Event.preventDefault();
 
-    if(document.getElementById('delete')) return;
+    const existing = document.getElementById('delete');
+    if(existing){
+        existing.remove();
+        return;
+    }
 
     const divDelete = document.createElement('div');
     divDelete.id = 'delete';
@@ -21,11 +25,14 @@ document.getElementById('deleteDish').addEventListener('click', (Event) => {
     divDelete.appendChild(id);
     divDelete.appendChild(send);
 
+    divDelete.addEventListener(('click'), (e) => e.stopPropagation());
     document.getElementById('deleteDish').appendChild(divDelete);
 
     const apiUrl = `https://localhost:7131/api/v1/Dish/${id}`;
 
-    send.addEventListener('click', async () => {
+    send.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        
         const dish = {
             id: id.value
         };

@@ -2,7 +2,11 @@ function updateDish(){
     document.getElementById('updateDish').addEventListener('click', (Event) => {
         Event.preventDefault();
 
-        if(document.getElementById('update')) return;
+        const existing = document.getElementById('update');
+        if(existing){
+            existing.remove();
+            return;
+        }
 
         const divUpdate = document.createElement('div');
         divUpdate.id = 'update';
@@ -94,11 +98,13 @@ function updateDish(){
         divUpdate.appendChild(active);
         divUpdate.appendChild(send);
 
+        divUpdate.addEventListener('click', (e) => e.stopPropagation());
         document.getElementById('updateDish').appendChild(divUpdate);
 
         const apiUrl = `https://localhost:7131/api/v1/Dish/${id}`;
 
-        send.addEventListener('click', async () => {
+        send.addEventListener('click', async (e) => {
+            e.stopPropagation();
             const dish = {
                 id: id.value,
                 name: dishName.value,
@@ -113,7 +119,7 @@ function updateDish(){
                 const response = await fetch(apiUrl, {
                     method: "PUT",
                     headers:{
-                        "Content.Type": "application/json"
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(dish)
                 });

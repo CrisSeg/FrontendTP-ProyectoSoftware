@@ -15,16 +15,16 @@ function makeMenu(dish){
     dishDescription.textContent = description;
 
     const dishPrice = document.createElement("p");
-    dishPrice.textContent = price;
+    dishPrice.textContent = `Precio: $${price}`;
 
     const dishAvialable = document.createElement("p");
-    dishAvialable.textContent = isActive;
+    dishAvialable.textContent = `Disponibilidad: ${isActive}`;
 
     const dishImage = document.createElement("img");
     dishImage.src = image;
 
     const dishCategory = document.createElement("p");
-    dishCategory.textContent = categoryName;
+    dishCategory.textContent = `Categoria: ${categoryName}`;
 
     const menuD = document.createElement("div");
     menuD.className = 'menu-item';

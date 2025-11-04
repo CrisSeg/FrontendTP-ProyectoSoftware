@@ -16,7 +16,7 @@ h2{
 
 .content{
     width: 100%;
-    max-width: 2500px;
+    max-width: 1200px;
     height: 100%;
 
     margin: auto;
@@ -95,6 +95,7 @@ h2{
     background-color: #ffc7c7;
     border: none;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 #buttonCreate{
@@ -130,6 +131,7 @@ h2{
     border: none;
     border-radius: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .updateD{
@@ -176,7 +178,6 @@ h2{
 
 .categoryD{
     grid-area: cat;
-    width: 500px;
     font-size: 2vh;
     background-color: #ffc7c7;
     border: none;
@@ -187,6 +188,7 @@ h2{
 .dishIm{
     grid-area: img;
     width: 80%;
+    margin-left: 100px;
     font-size: 2vh;
     background-color: #ffc7c7;
     border: none;
@@ -195,7 +197,8 @@ h2{
 
 .dishP{
     grid-area: pr;
-    width: 800px;
+    width: 300px;
+    margin-left: 150px;
     font-size: 2vh;
     background-color: #ffc7c7;
     border: none;
@@ -204,7 +207,6 @@ h2{
 
 .isActive{
     grid-area: ac;
-    width: 300px;
     font-size: 2vh;
     background-color: #ffc7c7;
     border: none;
@@ -214,7 +216,6 @@ h2{
 
 .buttonU{
     grid-area: bt;
-    width: 500px;
     font-size: 2vh;
     background-color: #ffc7c7;
     border: none;

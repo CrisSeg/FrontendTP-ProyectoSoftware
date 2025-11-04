@@ -133,6 +133,7 @@ function renderCartSummary(){
             }
 
             const data = await response.json();
+            localStorage.setItem('orderId', data.orderNumber);
             alert(
                 `Pedido creado con éxito:\n\n` +
                 `ID: ${data.orderNumber}\n Precio total: $${data.totalAmount}\n Fecha: ${new Date(data.createdAt).toLocaleDateString()}`
